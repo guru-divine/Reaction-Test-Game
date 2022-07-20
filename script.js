@@ -24,9 +24,13 @@ var clickedTime;
 var createdTime;
 var reactionTime;
 var bestTime = 1000;
+// var exitFlag = 0;
 // Date.now()
 
 function makeBox() {
+	// if (exitFlag == 1) {
+	// 	return 0;
+	// }
 	var time = Math.random();
 	time *= 4000;
 	setTimeout( function() {
@@ -34,8 +38,8 @@ function makeBox() {
 			document.getElementById("box").style.borderRadius = "100px";
 		}
 
-		var top = Math.random() * 400;
-		var left = Math.random() * 1300;
+		var top = Math.random() * 250;
+		var left = Math.random() * 1000;
 
 		document.getElementById("box").style.top = top+"px";
 		document.getElementById("box").style.left = left+"px";
@@ -63,6 +67,7 @@ document.getElementById("box").onclick = function() {
 makeBox();
 
 document.getElementById("button").onclick = function() {
+	// exitFlag = 1;
 	document.getElementById("heading").style.marginTop = "50px";
 	if(bestTime == 1000) {
 		document.getElementById("heading").innerHTML="You didn't play a single time. Oops, you missed the game.";
@@ -86,3 +91,6 @@ document.getElementById("button").onclick = function() {
 	document.getElementById("button").style.display="none";
 
 }
+// if(exitFlag == 1) {
+// 	document.getElementById("box").style.display="none";
+// }
